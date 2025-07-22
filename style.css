@@ -478,7 +478,6 @@ body {
   box-shadow: -.6rem .6rem .6rem rgba(0, 0, 0, .1);
 }
 
-/* Mobile-only Responsive Override: Scale entire book to viewport width */
 @media (max-width: 480px) {
   body {
     overflow-x: auto !important;
@@ -487,12 +486,19 @@ body {
     padding: 0;
   }
   .wrapper {
+    /* Keep original width and height, just scale down */
     width: 66rem !important;
-    padding: 0 !important;
+    height: 45rem !important;
     margin: 0 !important;
-    transform: scale(calc(100vw / 66rem)) !important;
+    padding: 0 !important;
+    transform: scale(0.34) !important;
     transform-origin: top left !important;
     perspective: 250rem !important;
+  }
+  /* Ensure navigation controls still visible */
+  .nextprev-btn,
+  .number-page {
+    display: block !important;
   }
 }
 
