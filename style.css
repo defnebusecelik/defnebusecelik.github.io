@@ -478,52 +478,21 @@ body {
   box-shadow: -.6rem .6rem .6rem rgba(0, 0, 0, .1);
 }
 
-/* Mobile-only Responsive Override: Preserve desktop book layout via scaling */
+/* Mobile-only Responsive Override: Scale entire book to viewport width */
 @media (max-width: 480px) {
-  /* Scale and enlarge wrapper to show two pages side by side */
-  .wrapper {
-    width: 200vw !important;
-    height: auto !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    transform: scale(0.6) !important;
-    transform-origin: top left !important;
-    perspective: 250rem !important;
-    animation: none !important;
-  }
   body {
     overflow-x: auto !important;
     overflow-y: hidden !important;
     margin: 0;
     padding: 0;
   }
-  /* Ensure book pages side by side */
-  .book {
-    display: flex !important;
-    position: relative !important;
-  }
-  .cover.cover-left,
-  .cover.cover-right {
-    display: block !important;
-  }
-  /* Page layout and animations intact */
-  .book-page {
-    position: absolute !important;
-    top: 0 !important;
-    width: 50% !important;
-    height: 100% !important;
-    transform-style: preserve-3d !important;
-    transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
-  }
-  .book-page.page-right {
-    left: 50% !important;
-    right: auto !important;
-  }
-  /* Navigation controls visible */
-  .nextprev-btn,
-  .number-page {
-    display: block !important;
+  .wrapper {
+    width: 66rem !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    transform: scale(calc(100vw / 66rem)) !important;
+    transform-origin: top left !important;
+    perspective: 250rem !important;
   }
 }
-
 
