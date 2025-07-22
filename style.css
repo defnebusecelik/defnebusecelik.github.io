@@ -478,81 +478,28 @@ body {
   box-shadow: -.6rem .6rem .6rem rgba(0, 0, 0, .1);
 }
 
+/* Mobile-only Responsive Override: Keep desktop book layout scaled down and animations intact */
 
-/* Apply on tablets and below */
-@media (max-width: 768px) {
-  /* Scale down entire wrapper to fit viewport */
-  .wrapper {
-    width: 100%;
-    max-width: 100%;
-    padding: 1rem;
-    transform: scale(0.7);
-    transform-origin: top center;
-  }
-  /* Ensure book stays two-page layout */
-  .book {
-    display: flex !important;
-  }
-  /* Keep page-turn effect on covers */
-  .cover.cover-left,
-  .cover.cover-right {
-    display: block;
-  }
-  /* Each page half width */
-  .book-page {
-    position: absolute !important;
-    width: 50% !important;
-    height: auto !important;
-    top: 0;
-    left: 0;
-    transform-style: preserve-3d;
-  }
-  .book-page.page-right {
-    right: 0;
-    left: auto;
-  }
-  /* Adjust content padding and typography */
-  .page-front,
-  .page-back {
-    padding: 1rem !important;
-  }
-  .profile-page img {
-    max-width: 120px !important;
-  }
-  .profile-page h1 {
-    font-size: 2rem !important;
-  }
-  .profile-page h3 {
-    font-size: 1.1rem !important;
-  }
-  .workeduc-content {
-    padding-left: 1rem !important;
-  }
-  .btn {
-    font-size: 0.9rem !important;
-    padding: 0.5rem 0.75rem !important;
-  }
-  .services-content,
-  .skills-content {
-    flex: 1 1 45% !important;
-  }
-  .profile-page .social-media a {
-    width: 1.8rem !important;
-    height: 1.8rem !important;
-    font-size: 1rem !important;
-  }
-  /* Hide navigation icons if too small */
-  .nextprev-btn,
-  .number-page {
-    display: none !important;
-  }
-}
-
-/* Apply on mobile devices */
 @media (max-width: 480px) {
-  /* Further scale down for smaller screens */
+  /* Scale down entire component to fit screen with preserved perspective */
   .wrapper {
-    transform: scale(0.5);
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 1rem !important;
+    transform: scale(0.6) !important;
+    transform-origin: top center !important;
+    perspective: 250rem !important;
+  }
+
+  /* Allow horizontal scrolling if needed */
+  body {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+  }
+
+  /* Uniformly scale images and typography */
+  .profile-page img {
+    max-width: 100px !important;
   }
   .profile-page h1 {
     font-size: 1.6rem !important;
@@ -560,13 +507,17 @@ body {
   .profile-page h3 {
     font-size: 1rem !important;
   }
+
+  /* Tighten paddings within pages */
+  .page-front,
+  .page-back {
+    padding: 0.75rem !important;
+  }
   .workeduc-content {
     padding-left: 0.8rem !important;
   }
-  .services-content,
-  .skills-content {
-    flex: 1 1 40% !important;
-  }
+
+  /* Scale down buttons and icons */
   .btn {
     font-size: 0.8rem !important;
     padding: 0.4rem 0.6rem !important;
@@ -576,5 +527,34 @@ body {
     height: 1.6rem !important;
     font-size: 0.9rem !important;
   }
-}
 
+  /* Maintain two-page book structure with animations */
+  .book {
+    display: flex !important;
+  }
+  .cover.cover-left,
+  .cover.cover-right {
+    display: block !important;
+  }
+  .book-page {
+    position: absolute !important;
+    width: 50% !important;
+    height: 100% !important;
+    transform-style: preserve-3d !important;
+    transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+  }
+  .book-page.page-right {
+    left: auto !important;
+    right: 0 !important;
+  }
+
+  /* Keep navigation controls visible and scaled */
+  .nextprev-btn {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+    font-size: 1.2rem !important;
+  }
+  .number-page {
+    font-size: 0.8rem !important;
+  }
+}
