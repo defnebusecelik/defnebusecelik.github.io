@@ -478,121 +478,51 @@ body {
   box-shadow: -.6rem .6rem .6rem rgba(0, 0, 0, .1);
 }
 
-/* Mobile-only Responsive Override: Scaled Two-Page Layout with Preserved Animations */
+/* Mobile-only Responsive Override: Preserve desktop book layout via scaling */
 @media (max-width: 480px) {
-  /* Wrapper occupies twice viewport width so each page equals viewport */
+  /* Scale and enlarge wrapper to show two pages side by side */
   .wrapper {
     width: 200vw !important;
     height: auto !important;
     padding: 0 !important;
     margin: 0 !important;
+    transform: scale(0.6) !important;
+    transform-origin: top left !important;
     perspective: 250rem !important;
+    animation: none !important;
   }
-
   body {
     overflow-x: auto !important;
     overflow-y: hidden !important;
     margin: 0;
     padding: 0;
   }
-
-  /* Book container and pages */
+  /* Ensure book pages side by side */
   .book {
     display: flex !important;
     position: relative !important;
-  }
-  .book-page {
-    position: absolute !important;
-    top: 0 !important;
-    width: 50vw !important;
-    height: auto !important;
-    transform-style: preserve-3d !important;
-    transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
-    padding: 1vw !important;
-  }
-  .book-page.page-right {
-    left: 50vw !important;
-    right: auto !important;
   }
   .cover.cover-left,
   .cover.cover-right {
     display: block !important;
   }
-
-  /* Profile page styling */
-  .profile-page {
-    padding: 2vw !important;
-    text-align: center !important;
+  /* Page layout and animations intact */
+  .book-page {
+    position: absolute !important;
+    top: 0 !important;
+    width: 50% !important;
+    height: 100% !important;
+    transform-style: preserve-3d !important;
+    transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
   }
-  .profile-page img {
-    max-width: 12vw !important;
-    margin: 0 auto 2vw auto !important;
-    border-width: 0.5vw !important;
+  .book-page.page-right {
+    left: 50% !important;
+    right: auto !important;
   }
-  .profile-page h1 {
-    font-size: 5vw !important;
-    line-height: 1.1 !important;
-  }
-  .profile-page h3 {
-    font-size: 3.5vw !important;
-  }
-  .profile-page p {
-    font-size: 3vw !important;
-    margin: 2vw 0 !important;
-  }
-
-  /* Work & Education entries */
-  .workeduc-content {
-    padding-left: 1vw !important;
-    margin-bottom: 2vw !important;
-  }
-  .workeduc-content h3 {
-    font-size: 4vw !important;
-  }
-  .workeduc-content p {
-    font-size: 3vw !important;
-  }
-  .workeduc-content .year {
-    font-size: 3vw !important;
-  }
-
-  /* Buttons and icons */
-  .btn {
-    font-size: 3vw !important;
-    padding: 2vw 4vw !important;
-    margin: 1vw 0 !important;
-  }
-  .profile-page .social-media a {
-    width: 4vw !important;
-    height: 4vw !important;
-    font-size: 3vw !important;
-    margin: 0 1vw !important;
-  }
-
-  /* Services & Skills */
-  .services-box,
-  .skills-box {
-    gap: 2vw !important;
-  }
-  .services-content h3,
-  .skills-content h3 {
-    font-size: 4vw !important;
-  }
-  .services-content p,
-  .skills-content .content span {
-    font-size: 3vw !important;
-  }
-
-  /* Navigation controls */
-  .nextprev-btn {
-    width: 6vw !important;
-    height: 6vw !important;
-    font-size: 5vw !important;
-    bottom: 2vw !important;
-  }
+  /* Navigation controls visible */
+  .nextprev-btn,
   .number-page {
-    font-size: 3vw !important;
-    bottom: 2vw !important;
+    display: block !important;
   }
 }
 
