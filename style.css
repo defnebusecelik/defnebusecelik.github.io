@@ -477,3 +477,85 @@ body {
 .book-page.page-left {
   box-shadow: -.6rem .6rem .6rem rgba(0, 0, 0, .1);
 }
+
+
+/* Responsive Overrides for Tablet and Mobile */
+
+/* Tablet devices (<= 768px) */
+@media (max-width: 768px) {
+  body {
+    overflow: auto;
+  }
+  .cover {
+    display: none;
+  }
+  .book {
+    display: block;
+  }
+  .book-page {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    transform: none !important;
+    box-shadow: 0 0 .6rem rgba(0, 0, 0, .1);
+    margin-bottom: 2rem;
+  }
+  .page-front,
+  .page-back {
+    position: relative !important;
+    transform: none !important;
+    padding: 1rem !important;
+  }
+  .nextprev-btn,
+  .number-page {
+    display: none !important;
+  }
+  .workeduc-box,
+  .services-box,
+  .skills-box {
+    border-left: none !important;
+    padding-left: 0 !important;
+  }
+  .profile-page img {
+    max-width: 150px !important;
+  }
+  .profile-page h1 {
+    font-size: 2.2rem !important;
+  }
+  .profile-page h3 {
+    font-size: 1.2rem !important;
+  }
+  .btn {
+    width: auto !important;
+    padding: 0.75rem 1rem !important;
+    font-size: 1rem !important;
+    margin: 0.5rem 0 !important;
+  }
+  .profile-page .social-media a {
+    width: 2rem !important;
+    height: 2rem !important;
+    font-size: 1.1rem !important;
+  }
+  .contact-form .field,
+  .contact-form textarea {
+    padding: 0.5rem !important;
+    font-size: 0.9rem !important;
+  }
+}
+
+/* Mobile devices (<= 480px) */
+@media (max-width: 480px) {
+  .profile-page h1 {
+    font-size: 1.8rem !important;
+  }
+  .profile-page h3 {
+    font-size: 1.2rem !important;
+  }
+  .services-content,
+  .skills-content {
+    flex: 1 1 100% !important;
+  }
+  .workeduc-content {
+    padding-left: 1rem !important;
+  }
+}
