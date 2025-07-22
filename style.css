@@ -478,21 +478,17 @@ body {
   box-shadow: -.6rem .6rem .6rem rgba(0, 0, 0, .1);
 }
 
-/* Mobile-only Responsive Override: Keep desktop book layout scaled down and animations intact */
-
+/* Mobile-only Responsive Override: Scaled Two-Page Layout with Preserved Animations */
 @media (max-width: 480px) {
-  /* Scale down entire component to fit screen with preserved perspective and remove extra whitespace */
+  /* Wrapper occupies twice viewport width so each page equals viewport */
   .wrapper {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0.5rem 0 !important;
+    width: 200vw !important;
+    height: auto !important;
+    padding: 0 !important;
     margin: 0 !important;
-    transform: scale(0.6) !important;
-    transform-origin: top left !important;
     perspective: 250rem !important;
   }
 
-  /* Allow horizontal scrolling if needed */
   body {
     overflow-x: auto !important;
     overflow-y: hidden !important;
@@ -500,86 +496,104 @@ body {
     padding: 0;
   }
 
-  /* Profile page adjustments */
-  .profile-page {
-    justify-content: flex-start !important;
-    padding-top: 0.5rem !important;
-  }
-  .profile-page img {
-    max-width: 80px !important;
-    margin: 0 auto 0.5rem auto !important;
-  }
-  .profile-page h1 {
-    font-size: 1.4rem !important;
-    margin-bottom: 0.2rem !important;
-  }
-  .profile-page h3 {
-    font-size: 0.9rem !important;
-    margin-bottom: 0.5rem !important;
-  }
-  .profile-page p {
-    font-size: 0.8rem !important;
-    margin: 0.5rem 0 !important;
-  }
-
-  /* Tighten paddings within pages */
-  .page-front,
-  .page-back {
-    padding: 0.5rem 0.75rem !important;
-    margin: 0 !important;
-  }
-  .workeduc-content {
-    padding-left: 0.6rem !important;
-  }
-  .workeduc-content h3 {
-    font-size: 0.9rem !important;
-  }
-  .workeduc-content p {
-    font-size: 0.75rem !important;
-  }
-
-  /* Scale down buttons and icons */
-  .btn {
-    font-size: 0.75rem !important;
-    padding: 0.3rem 0.5rem !important;
-    margin: 0.3rem 0 !important;
-  }
-  .profile-page .social-media a {
-    width: 1.4rem !important;
-    height: 1.4rem !important;
-    font-size: 0.8rem !important;
-    margin: 0 0.2rem !important;
-  }
-
-  /* Maintain two-page book structure with animations */
+  /* Book container and pages */
   .book {
     display: flex !important;
+    position: relative !important;
+  }
+  .book-page {
+    position: absolute !important;
+    top: 0 !important;
+    width: 50vw !important;
+    height: auto !important;
+    transform-style: preserve-3d !important;
+    transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+    padding: 1vw !important;
+  }
+  .book-page.page-right {
+    left: 50vw !important;
+    right: auto !important;
   }
   .cover.cover-left,
   .cover.cover-right {
     display: block !important;
   }
-  .book-page {
-    position: absolute !important;
-    top: 0 !important;
-    width: 50% !important;
-    height: 100% !important;
-    transform-style: preserve-3d !important;
-    transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+
+  /* Profile page styling */
+  .profile-page {
+    padding: 2vw !important;
+    text-align: center !important;
   }
-  .book-page.page-right {
-    left: auto !important;
-    right: 0 !important;
+  .profile-page img {
+    max-width: 12vw !important;
+    margin: 0 auto 2vw auto !important;
+    border-width: 0.5vw !important;
+  }
+  .profile-page h1 {
+    font-size: 5vw !important;
+    line-height: 1.1 !important;
+  }
+  .profile-page h3 {
+    font-size: 3.5vw !important;
+  }
+  .profile-page p {
+    font-size: 3vw !important;
+    margin: 2vw 0 !important;
   }
 
-  /* Keep navigation controls visible and scaled */
+  /* Work & Education entries */
+  .workeduc-content {
+    padding-left: 1vw !important;
+    margin-bottom: 2vw !important;
+  }
+  .workeduc-content h3 {
+    font-size: 4vw !important;
+  }
+  .workeduc-content p {
+    font-size: 3vw !important;
+  }
+  .workeduc-content .year {
+    font-size: 3vw !important;
+  }
+
+  /* Buttons and icons */
+  .btn {
+    font-size: 3vw !important;
+    padding: 2vw 4vw !important;
+    margin: 1vw 0 !important;
+  }
+  .profile-page .social-media a {
+    width: 4vw !important;
+    height: 4vw !important;
+    font-size: 3vw !important;
+    margin: 0 1vw !important;
+  }
+
+  /* Services & Skills */
+  .services-box,
+  .skills-box {
+    gap: 2vw !important;
+  }
+  .services-content h3,
+  .skills-content h3 {
+    font-size: 4vw !important;
+  }
+  .services-content p,
+  .skills-content .content span {
+    font-size: 3vw !important;
+  }
+
+  /* Navigation controls */
   .nextprev-btn {
-    width: 1.2rem !important;
-    height: 1.2rem !important;
-    font-size: 1rem !important;
+    width: 6vw !important;
+    height: 6vw !important;
+    font-size: 5vw !important;
+    bottom: 2vw !important;
   }
   .number-page {
-    font-size: 0.7rem !important;
+    font-size: 3vw !important;
+    bottom: 2vw !important;
   }
 }
+
 
